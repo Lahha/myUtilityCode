@@ -211,7 +211,7 @@ public:
 	{
 		if (rows != cols)
 		{
-			if(throw)
+			if(throwIfNotSquare)
 				throw std::invalid_argument("Need square matrix to calculate determinant.");
 			else
 				return valueType(0);
@@ -247,8 +247,6 @@ public:
 	
     Type minor(unsigned row, unsigned col) const
     {
-        Type res;
-
         if (row <= rows && col <= cols)
         {
             Type res(rows - 1, cols - 1, 0);
@@ -259,9 +257,11 @@ public:
                 {
                     res.get(r, c) = get(r + (r >= row), c + (c >= col));
                 }
+
+			return res;
         }
  
-        return res;
+        return Type(*this);
     }
 
 	Type transpose() const
