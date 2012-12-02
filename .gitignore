@@ -2,6 +2,9 @@
 *.slo
 *.lo
 *.o
+*.lib
+*.exe
+*.dll
 
 # Compiled Dynamic libraries
 *.so
@@ -11,3 +14,7 @@
 *.lai
 *.la
 *.a
+
+# OS generated files #
+######################
+Thumbs.db
